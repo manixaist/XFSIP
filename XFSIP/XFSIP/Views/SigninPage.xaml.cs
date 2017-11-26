@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace XFSIP
+namespace XFSIP.Views
 {
-    public partial class MainPage : ContentPage
+    public partial class SigninPage : ContentPage
     {
-        public MainPage()
+        public SigninPage()
         {
             InitializeComponent();
         }

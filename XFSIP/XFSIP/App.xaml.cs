@@ -45,7 +45,9 @@ namespace XFSIP
             InitializeComponent();
 
             // Create the main page (signin)
-            MainPage = new XFSIP.MainPage();
+            // MainPage here is a property on the Xamarin.Forms.Application base object
+            // Setting the SigninPage to this makes it the 'main' page or starting page
+            MainPage = new XFSIP.Views.SigninPage();
         }
 
         protected override void OnStart()

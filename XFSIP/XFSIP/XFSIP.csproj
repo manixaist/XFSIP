@@ -39,8 +39,10 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ILocalize.cs" />
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Models\UserSigninInfo.cs" />
+    <Compile Include="ViewModels\SigninViewModel.cs" />
+    <Compile Include="Views\SigninPage.xaml.cs">
+      <DependentUpon>SigninPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resx\AppResources.Designer.cs">
@@ -51,7 +53,7 @@
     <Compile Include="TranslateExtension.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MainPage.xaml">
+    <EmbeddedResource Include="Views\SigninPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:XFSIP;assembly=XFSIP"
+             xmlns:local="clr-namespace:XFSIP.ViewModels"
+             x:Class="XFSIP.Views.SigninPage">
+    <!-- x      : XAML
+         i18n   : Internationalization convention namespace (the RESX assembly)
+         local  : local assembly (where the view model lives)
+         Class  : code-behind assembly for this xaml, this is part of the generated cs code process-->
+    
+    <!-- This actually binds the XFSIP.ViewModels.SigninViewModel class to the Page-->
+    <!-- The namespace above just allows some shorthand below -->
+    <ContentPage.BindingContext>
+        <local:SigninViewModel/>
+    </ContentPage.BindingContext>
+    
+    <!-- The Page's Content-->
+    <ContentPage.Content>
+        <!-- Which for now is a StackLayout comprised of the basic views (controls)-->
+        <StackLayout>
+            <!-- USERNAME LABEL/ENTRY -->
+            <!-- Loads the static string from the RESX assembly-->
+            <Label Text="{i18n:Translate UsernameLabel}"
+                HorizontalOptions="CenterAndExpand" />
+            <!-- This is the User Name entry control (or edit control in Win32 world)
+                 The data here is bound to a Property in the attached view model so when
+                 the user enters a name, it's updated in the view model as well-->
+            <Entry Text="{Binding UserSigninInfo.Username, Mode=TwoWay}" 
+                Placeholder="{i18n:Translate UsernamePlaceholder}"
+                HorizontalOptions="FillAndExpand" />
+
+            <!-- PASSWORD LABEL/ENTRY -->
+            <!-- Loads the static string from the RESX assembly-->
+            <Label Text="{i18n:Translate PasswordLabel}"
+                HorizontalOptions="CenterAndExpand" />
+
+            <!-- This is the password entry control and functions just as the user name
+                 above, except the content is bound to a different property in the view model
+                 and the IsPassword property is set to true as well so the field is obscured
+                 in the manner the runtime OS chooses (e.g. little cirlces or asterixes)-->
+            <Entry Text="{Binding UserSigninInfo.Password, Mode=TwoWay}" 
+                Placeholder="{i18n:Translate PasswordPlaceholder}" 
+                IsPassword="True"
+                HorizontalOptions="FillAndExpand" />
+            
+            <!-- SIGNIN BUTTON -->
+            <!-- The placeholder text is loaded from the RESX assembly and the OnClick handler
+                 is bound to a command exposed by the view model.  When the button is clicked,
+                 this command will be sent to the view model, and the data (bound above to the 
+                 view model) will be used to signin-->
+            <Button Text="{i18n:Translate SigninButtonLabel}" 
+                HorizontalOptions="CenterAndExpand" 
+                Command="{Binding SigninCommand}"
+                IsEnabled="{Binding WaitingForSubmit, Mode=TwoWay}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
