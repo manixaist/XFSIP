@@ -126,6 +126,9 @@
   <data name="SigninButtonLabel" xml:space="preserve">
     <value>Signin...</value>
   </data>
+  <data name="SigninErrorLabel" xml:space="preserve">
+    <value>Username/password was not valid!</value>
+  </data>
   <data name="UsernameLabel" xml:space="preserve">
     <value>User name:</value>
   </data>

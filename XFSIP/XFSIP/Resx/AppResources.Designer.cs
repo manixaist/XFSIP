@@ -89,6 +89,15 @@ namespace XFSIP.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Username/password was not valid!.
+        /// </summary>
+        internal static string SigninErrorLabel {
+            get {
+                return ResourceManager.GetString("SigninErrorLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User name:.
         /// </summary>
         internal static string UsernameLabel {

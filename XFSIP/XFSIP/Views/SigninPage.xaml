@@ -43,6 +43,16 @@
                 Placeholder="{i18n:Translate PasswordPlaceholder}" 
                 IsPassword="True"
                 HorizontalOptions="FillAndExpand" />
+
+            <!-- ERROR LABEL -->
+            <!-- This is not visible unless the error state is set.  The boolean is bound
+                 to the view model and when set, this will become visible under the password entry-->
+            <Label Text="{i18n:Translate SigninErrorLabel}"
+                TextColor="Red"
+                HorizontalOptions="FillAndExpand" 
+                HorizontalTextAlignment="Center"
+                FontSize="Micro"
+                IsVisible="{Binding IsErrorState}"/>
             
             <!-- SIGNIN BUTTON -->
             <!-- The placeholder text is loaded from the RESX assembly and the OnClick handler

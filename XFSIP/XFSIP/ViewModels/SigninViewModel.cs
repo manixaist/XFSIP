@@ -64,8 +64,36 @@ namespace XFSIP.ViewModels
             // This one is set in code, so it will go back to the View
             set
             {
-                waitingForSubmit = value;
-                OnPropertyChanged();
+                // Only update this if it changed, since it will update the
+                // view binding(s)
+                if (waitingForSubmit != value)
+                {
+                    waitingForSubmit = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Exposes a bool that is true if the form is in an error state
+        /// (incorrect user:password given)
+        /// </summary>
+        public bool IsErrorState
+        {
+            get
+            {
+                return isErrorState;
+            }
+
+            set
+            {
+                // Only update this if it changed, since it will update the
+                // view binding(s)
+                if (isErrorState != value)
+                {
+                    isErrorState = value;
+                    OnPropertyChanged();
+                }
             }
         }
 
@@ -83,11 +111,17 @@ namespace XFSIP.ViewModels
             // The page is about to submit data (bound to button enabled state in example)
             WaitingForSubmit = false;
 
+            // Reset error state on new attempt
+            IsErrorState = false;
+
             // "Signin" to our service
             int result = await DoFakeSigninAsync(userSigninInfo.Username, userSigninInfo.Password);
 
             // Success or fail we're done signing in
             WaitingForSubmit = true;
+
+            // Set error state
+            IsErrorState = (result != 1);
 
             // Navigate based on result (or show error)
             Debug.WriteLine(String.Format("DoFakeSigninAsync => {0}",result));
@@ -103,6 +137,9 @@ namespace XFSIP.ViewModels
 
         // This is bound to the enabled state of the button
         private bool waitingForSubmit = true;
+
+        // bound to error text
+        private bool isErrorState = false;
 
         /// <summary>
         /// Fires the PropertyChanged event for INotifyPropertyChanged implementation
