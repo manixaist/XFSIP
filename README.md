@@ -30,7 +30,11 @@ If you enter anything other than "randy:123" as the username:password, then Sign
 in the view (IsVisible Property is bound to the ViewModel).  This also demonstrates how to propagate changes back by changing
 these properties in code (clearing the error message on retry).
 
+![](./images/XFSIP_fail.gif)
+
 If you did enter "randy:123" the Signin MVVM will navigate (in the view model) to the only other MVVM in the prototype.
+
+![](./images/XFSIP_success.gif)
 
 ### UserLandingPage MVVM
 This attempts to demonstrate a simple stack based navigation model.  It is very bare bones, but demonstrates a few interesting
