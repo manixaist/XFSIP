@@ -5,8 +5,17 @@
              x:Class="XFSIP.MainPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
+            <Label Text="User Name:"
+                HorizontalOptions="CenterAndExpand" />
+            <Entry Text="" Placeholder="UserName..."
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Password:"
+                HorizontalOptions="CenterAndExpand" />
+            <Entry Text="" 
+                Placeholder="Password..." 
+                IsPassword="True"
+                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Sigin" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
