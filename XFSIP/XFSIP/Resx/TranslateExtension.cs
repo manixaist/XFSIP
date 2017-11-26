@@ -6,7 +6,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 // Taken from https://developer.xamarin.com/guides/xamarin-forms/advanced/localization/
-namespace XFSIP
+namespace XFSIP.Resx
 {
     // You exclude the 'Extension' suffix when using in Xaml markup
     [ContentProperty("Text")]

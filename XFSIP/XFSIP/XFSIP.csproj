@@ -38,7 +38,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ILocalize.cs" />
+    <Compile Include="Resx\ILocalize.cs" />
     <Compile Include="Models\UserSigninInfo.cs" />
     <Compile Include="ViewModels\SigninViewModel.cs" />
     <Compile Include="Views\SigninPage.xaml.cs">
@@ -50,7 +50,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="TranslateExtension.cs" />
+    <Compile Include="Resx\TranslateExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\SigninPage.xaml">
