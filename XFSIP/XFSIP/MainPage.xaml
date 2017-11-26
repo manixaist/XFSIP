@@ -1,21 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:XFSIP;assembly=XFSIP"
              xmlns:local="clr-namespace:XFSIP"
              x:Class="XFSIP.MainPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="User Name:"
+            <Label Text="{i18n:Translate UsernameLabel}"
                 HorizontalOptions="CenterAndExpand" />
-            <Entry Text="" Placeholder="UserName..."
+            <Entry Text="" Placeholder="{i18n:Translate UsernamePlaceholder}"
                 HorizontalOptions="CenterAndExpand" />
-            <Label Text="Password:"
+            <Label Text="{i18n:Translate PasswordLabel}"
                 HorizontalOptions="CenterAndExpand" />
             <Entry Text="" 
-                Placeholder="Password..." 
+                Placeholder="{i18n:Translate PasswordPlaceholder}" 
                 IsPassword="True"
                 HorizontalOptions="CenterAndExpand" />
-            <Button Text="Sigin" 
+            <Button Text="{i18n:Translate SigninButtonLabel}" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
