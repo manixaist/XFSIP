@@ -47,7 +47,9 @@ namespace XFSIP
             // Create the main page (signin)
             // MainPage here is a property on the Xamarin.Forms.Application base object
             // Setting the SigninPage to this makes it the 'main' page or starting page
-            MainPage = new XFSIP.Views.SigninPage();
+            // This needs to be a 'NavigationPage' on Android as Android doesn't support
+            // PushAsync on all devices the same (typical)
+            MainPage = new NavigationPage(new XFSIP.Views.SigninPage());
         }
 
         protected override void OnStart()

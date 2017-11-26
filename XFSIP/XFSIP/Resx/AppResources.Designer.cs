@@ -98,6 +98,15 @@ namespace XFSIP.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Welcome {0}!.
+        /// </summary>
+        internal static string UserLandingDisplayFormat {
+            get {
+                return ResourceManager.GetString("UserLandingDisplayFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User name:.
         /// </summary>
         internal static string UsernameLabel {

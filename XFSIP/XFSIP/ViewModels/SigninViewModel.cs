@@ -30,6 +30,14 @@ namespace XFSIP.ViewModels
         }
 
         /// <summary>
+        /// Navigation object, this is bound to the Content Page in XAML
+        /// (though the source doesn't matter here) and used to navigate
+        /// the Navigation Stack.  This is the most minor pollution of
+        /// the ViewModel to get this information.
+        /// </summary>
+        public INavigation Navigation { get; set; }
+
+        /// <summary>
         /// Exposes the UserSigninInfo object as a Property
         /// </summary>
         public UserSigninInfo UserSigninInfo
@@ -122,10 +130,30 @@ namespace XFSIP.ViewModels
 
             // Set error state
             IsErrorState = (result != 1);
+            Debug.WriteLine(String.Format("DoFakeSigninAsync => {0}", result));
 
-            // Navigate based on result (or show error)
-            Debug.WriteLine(String.Format("DoFakeSigninAsync => {0}",result));
+            if (!IsErrorState) // We succeeded
+            {
+                // The ViewModel in this case is created at runtime with data from the Model here
+                // (the username in this example)
+                var vm = new XFSIP.ViewModels.UserLandingViewModel(userSigninInfo.Username);
+                // Create our new Page
+                var landingPage = new XFSIP.Views.UserLandingPage();
+                // Attach the ViewModel above to the new page.  Now elements in xaml on that page
+                // can bind to Properties in the ViewModel just created
+                landingPage.BindingContext = vm;
 
+                try
+                {
+                    // Navigate to the Page created above
+                    await Navigation.PushAsync(landingPage);
+                }
+                catch (Exception e)
+                {
+                    // Navigation was not bound properly and was null at one point, leaving this in
+                    Debug.WriteLine(e.Message);
+                };
+            }
         }, () => // CanExecute
         {
             // In case a button masher slips another command in 
@@ -170,7 +198,7 @@ namespace XFSIP.ViewModels
                                                         localSigninInfo.Username, localSigninInfo.Password));
                 int result = 0;
                 // Simulate delay over wire
-                await Task.Delay(5000);
+                await Task.Delay(1500);
 
                 if (localSigninInfo.Username == "randy" && localSigninInfo.Password == "123")
                 {

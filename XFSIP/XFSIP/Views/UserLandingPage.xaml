@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:XFSIP.Resx;assembly=XFSIP"
+             x:Class="XFSIP.Views.UserLandingPage"
+             NavigationPage.HasNavigationBar="false"
+             NavigationPage.HasBackButton="false">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- For the bindings in this page, the ViewModel is set not
+                 in XAML like the SigninPage, but rather by the BindingContext
+                 in code prior to navigation.  This exposes a formatted string
+                 that contains the username, as you can't format strings in XAML-->
+            <Label Text="{Binding WelcomeMessage}"
+                HorizontalOptions="StartAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

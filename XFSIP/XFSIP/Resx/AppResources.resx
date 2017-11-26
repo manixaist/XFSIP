@@ -129,6 +129,9 @@
   <data name="SigninErrorLabel" xml:space="preserve">
     <value>Username/password was not valid!</value>
   </data>
+  <data name="UserLandingDisplayFormat" xml:space="preserve">
+    <value>Welcome {0}!</value>
+  </data>
   <data name="UsernameLabel" xml:space="preserve">
     <value>User name:</value>
   </data>
